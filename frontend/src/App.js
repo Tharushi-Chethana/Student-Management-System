@@ -1,5 +1,5 @@
 import './App.css';
-import Header from './components/header';
+// import Header from './components/header';
 import AddStudent from './components/addStudent';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AllStudents from './components/allStudents';
@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Header />
+        {/* <Header /> */}
         <Routes>
           <Route path="/" element={<AllStudents />} />
           <Route path="/add" element={<AddStudent />} />

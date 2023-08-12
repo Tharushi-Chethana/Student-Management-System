@@ -21,30 +21,37 @@ export default function AllStudents (){
     }, [])
 
     return(
-        <div className="container">
-            <h1>All Students</h1>
-            <Link to="/add" class="btn btn-primary">Add Student</Link>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Age</th>
-                        <th scope="col">Gender</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                </thead>
-                {students.map((student, index) => (
-                    <tr key={student._id}>
-                        <th scope="row">{index+1}</th>
-                        <td>{student.name}</td>
-                        <td>{student.age}</td>
-                        <td>{student.gender}</td>
-                        <Link to={`/update/${student._id}`}class="btn btn-warning">Update</Link>
-                        <Link to={`/delete/${student._id}`} class="btn btn-danger">Delete</Link>
-                    </tr>
-                ))}
-            </table>
+        <div>
+            <h1>Students' Details</h1>
+            <div className="container">
+            <Link to="/add" className="btn btn-primary add-student">Add Student</Link>
+                <table class="table">
+                    <thead>
+                        {/* <tr> */}
+                            <th scope="col">No</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Actions</th>
+                        {/* </tr> */}
+                    </thead>
+                    <tbody>
+                        {students.map((student, index) => (
+                            <tr key={student._id} className="table-row">
+                                <th scope="row" style={{ backgroundColor: 'lightblue' }}>{index+1}</th>
+                                <td style={{ backgroundColor: 'lightblue' }}>{student.name}</td>
+                                <td style={{ backgroundColor: 'lightblue' }}>{student.age}</td>
+                                <td style={{ backgroundColor: 'lightblue' }}>{student.gender}</td>
+                                <td className="btn-gap" style={{ backgroundColor: 'lightblue' }}>
+                                    <Link to={`/update/${student._id}`}class="btn btn-warning btn1">Update</Link>
+                                    <span className="btns"></span>
+                                    <Link to={`/delete/${student._id}`} class="btn btn-danger">Delete</Link>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }
