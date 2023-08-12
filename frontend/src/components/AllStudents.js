@@ -37,8 +37,8 @@ export default function AllStudents (){
                     </thead>
                     <tbody>
                         {students.map((student, index) => (
-                            <tr key={student._id}>
-                                <th scope="row" style={{ backgroundColor: 'lightblue'}}>{index+1}</th>
+                            <tr key={student._id} className="table-row">
+                                <th scope="row" style={{ backgroundColor: 'lightblue' }}>{index+1}</th>
                                 <td style={{ backgroundColor: 'lightblue' }}>{student.name}</td>
                                 <td style={{ backgroundColor: 'lightblue' }}>{student.age}</td>
                                 <td style={{ backgroundColor: 'lightblue' }}>{student.gender}</td>
