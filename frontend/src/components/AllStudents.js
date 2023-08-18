@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react"
 import axios from "axios"
 import {Link} from 'react-router-dom'
+import allStudentStyle from './allStudents.module.css'
 
 export default function AllStudents (){
 
@@ -23,7 +24,7 @@ export default function AllStudents (){
     return(
         <div>
             <h1>Students' Details</h1>
-            <div className="container">
+            <div className={allStudentStyle.container}>
             <Link to="/add" className="btn btn-primary add-student">Add Student</Link>
                 <table class="table">
                     <thead>

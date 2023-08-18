@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
+import addStudentStyle from './addStudent.module.css';
 
 export default function AddStudent(){
 
@@ -26,7 +27,7 @@ export default function AddStudent(){
     }
 
     return(
-        <div className="container">
+        <div className={addStudentStyle.container}>
         <form onSubmit={sendData}>
         <div className="mb-3">
             <label for="name" className="form-label">Name</label>
