@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import updateStudentStyle from './addStudent.module.css';
 
 export default function UpdateStudent() {
   const [name, setName] = useState("name");
@@ -45,7 +46,7 @@ export default function UpdateStudent() {
   }
 
   return (
-    <div className="container">
+    <div className={updateStudentStyle.container}>
       <form onSubmit={updateStudent}>
         <div className="mb-3">
             <label for="name" className="form-label">Name</label>
