@@ -50,7 +50,10 @@ export default function AddStudent(){
                 setGender(e.target.value); //when insert value, always asigne to the name state
             }}></input>
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <div className={addStudentStyle.btns}>
+            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="reset" className={`btn btn-danger ${addStudentStyle['reset-btn']}`}>Reset</button>
+        </div>
         </form>
         </div>
     )
