@@ -48,7 +48,7 @@ export default function DeleteStudent() {
         </button>
         <Link to="/all" className="btn btn-secondary ms-2">
           Cancel
-        </Link>
+        </Link>       
       </div>
     </div>
   );

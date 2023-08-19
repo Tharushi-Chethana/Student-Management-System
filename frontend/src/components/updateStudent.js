@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import updateStudentStyle from './addStudent.module.css';
 
 export default function UpdateStudent() {
@@ -8,6 +8,7 @@ export default function UpdateStudent() {
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const { id } = useParams(); // Assuming you're using a parameter in the URL for student ID
+  const navigate = useNavigate();
   console.log(id);
 
 
@@ -39,6 +40,7 @@ export default function UpdateStudent() {
     axios.put(`http://localhost:8070/student/update/${id}`, updatedStudent)
       .then(() => {
         alert("Student updated");
+        navigate("/");
       })
       .catch((err) => {
         alert(err);
