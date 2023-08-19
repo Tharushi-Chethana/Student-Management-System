@@ -24,8 +24,8 @@ export default function AllStudents (){
     return(
         <div>
             <h1>Students' Details</h1>
+            <Link to="/add" className={`btn btn-primary ${allStudentStyle['add-student']}`}>Add Student</Link>
             <div className={allStudentStyle.container}>
-            <Link to="/add" className="btn btn-primary add-student">Add Student</Link>
                 <table class="table">
                     <thead>
                         {/* <tr> */}
@@ -44,7 +44,7 @@ export default function AllStudents (){
                                 <td style={{ backgroundColor: 'lightblue' }}>{student.age}</td>
                                 <td style={{ backgroundColor: 'lightblue' }}>{student.gender}</td>
                                 <td className="btn-gap" style={{ backgroundColor: 'lightblue' }}>
-                                    <Link to={`/update/${student._id}`}class="btn btn-warning btn1">Update</Link>
+                                    <Link to={`/update/${student._id}`} className={`btn btn-warning  ${allStudentStyle['btn1']}`}>Update</Link>
                                     <span className="btns"></span>
                                     <Link to={`/delete/${student._id}`} class="btn btn-danger">Delete</Link>
                                 </td>
