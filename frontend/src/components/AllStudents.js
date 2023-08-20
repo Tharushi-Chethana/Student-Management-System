@@ -4,20 +4,24 @@ import {Link} from 'react-router-dom'
 import allStudentStyle from './allStudents.module.css'
 
 export default function AllStudents (){
-
+    // State to store the list of students
     const [students, setStudents] = useState([])
 
     useEffect(() => {
+        // Fetch students data from the server when the component mounts
         function getStudents (){
             axios.get("http://localhost:8070/student/" )
             .then((res) => {
                 console.log(res.data);
+                // Update the students state with the fetched data
                 setStudents(res.data.students);
             })
             .catch((err) =>{
+                // Display an error alert if fetching fails
                 alert(err.message)
             })
         }
+        // Call the getStudents function to fetch data
         getStudents();
     }, [])
 

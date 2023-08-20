@@ -4,13 +4,17 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import deleteStudentStyle from './deleteStudent.module.css'
 
 export default function DeleteStudent() {
+  // Get the student ID from the URL parameter
   const { id } = useParams();
+  // State to store the student's information
   const [student, setStudent] = useState({});
   const navigate = useNavigate();
 
+  // Fetch student data from the server when the component mounts
   useEffect(() => {
     axios.get(`http://localhost:8070/student/get/${id}`)
       .then((res) => {
+        // Update the state with the fetched student data
         setStudent(res.data.student);
       })
       .catch((err) => {
@@ -19,9 +23,11 @@ export default function DeleteStudent() {
   }, [id]);
 
   const handleDelete = () => {
+    // Display a confirmation dialog to ensure deletion
     const confirmed = window.confirm("Are you sure you want to delete this student?");
     
     if (confirmed) {
+      // Send a DELETE request to delete the student from the server
       axios.delete(`http://localhost:8070/student/delete/${id}`)
         .then(() => {
           alert("Student deleted successfully");

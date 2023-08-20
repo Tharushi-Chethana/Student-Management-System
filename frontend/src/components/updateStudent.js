@@ -4,10 +4,12 @@ import { useParams, useNavigate } from "react-router-dom";
 import updateStudentStyle from './addStudent.module.css';
 
 export default function UpdateStudent() {
-  const [name, setName] = useState("name");
+  // State variables to store student information
+  const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
-  const { id } = useParams(); // Assuming you're using a parameter in the URL for student ID
+  // Assuming you're using a parameter in the URL for student ID
+  const { id } = useParams(); 
   const navigate = useNavigate();
   console.log(id);
 
@@ -18,7 +20,8 @@ export default function UpdateStudent() {
       .then((res) => {
         // console.log(res.data.student)
         const studentData = res.data.student;
-        console.log(studentData)
+        console.log(studentData);
+        // Update the state variables with fetched student data
         setName(studentData.name);
         setAge(studentData.age);
         setGender(studentData.gender);
@@ -37,6 +40,7 @@ export default function UpdateStudent() {
       gender,
     };
 
+    // Send a PUT request to update student data
     axios.put(`http://localhost:8070/student/update/${id}`, updatedStudent)
       .then(() => {
         alert("Student updated");
