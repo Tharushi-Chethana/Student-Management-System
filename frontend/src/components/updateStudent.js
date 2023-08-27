@@ -43,13 +43,14 @@ export default function UpdateStudent() {
     // Send a PUT request to update student data
     axios.put(`http://localhost:8070/student/update/${id}`, updatedStudent)
       .then(() => {
-        alert("Student updated");
+        alert("Student updated successfully");
         navigate("/");
       })
       .catch((err) => {
         alert(err);
       });
   }
+
 
   return (
     <div className={updateStudentStyle.container}>
